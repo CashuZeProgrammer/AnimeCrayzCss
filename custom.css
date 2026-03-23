@@ -1,0 +1,199 @@
+/* ===== BASE PANELS ===== */
+#browser,
+.toolbar,
+.panel-group {
+    background-color: transparent !important; /* allow start page background to show */
+    backdrop-filter: blur(8px);  /* optional frosted effect */
+    transition: all 0.3s ease;
+}
+
+/* ===== TABS ===== */
+.tab {
+    background: rgba(15, 15, 45, 0.6) !important; /* semi-transparent tabs only */
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.tab:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #7b00ff, 0 0 20px #3a00cc;
+}
+
+.tab.active {
+    background: rgba(60, 0, 80, 0.2) !important;
+    border: 1px solid #ff77ff;
+    box-shadow: 0 0 15px #ff77ff, 0 0 30px #6600ff;
+    animation: neonPulse 2s infinite, borderShift 3s linear infinite;
+}
+
+/* ===== TAB ICONS ===== */
+.tab .icon {
+    filter: brightness(0.8);
+    transition: all 0.3s ease;
+}
+
+.tab:hover .icon {
+    filter: brightness(1) drop-shadow(0 0 6px #7b00ff);
+    transform: scale(1.1);
+}
+
+.tab.active .icon {
+    box-shadow: 0 0 10px #ff77ff, 0 0 20px #6600ff;
+}
+
+/* ===== NEON PULSE ANIMATION ===== */
+@keyframes neonPulse {
+    0%, 100% { box-shadow: 0 0 15px #ff77ff, 0 0 30px #6600ff; }
+    50% { box-shadow: 0 0 20px #ff77ff, 0 0 40px #6600ff; }
+}
+
+/* ===== ACTIVE TAB BORDER SHIFT ===== */
+@keyframes borderShift {
+    0% { border-color: #ff77ff; }
+    50% { border-color: #7b00ff; }
+    100% { border-color: #ff77ff; }
+}
+
+/* ===== ADDRESS BAR ===== */
+.UrlBar-AddressField {
+    background: rgba(10, 10, 30, 0.6) !important;
+    border: 1px solid #7b00ff;
+    box-shadow: 0 0 6px #7b00ff;
+    transition: 0.3s ease;
+}
+
+.UrlBar-AddressField:focus-within {
+    box-shadow: 0 0 12px #7b00ff, 0 0 24px #ff77ff;
+}
+
+/* ===== MIDNIGHT SKY SCROLLBAR ===== */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a20;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px #1a1a40;
+    background-image: radial-gradient(#ffffff 1px, transparent 1px);
+    background-size: 20px 20px; /* tiny twinkle stars */
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #4b0082, #1e1e50, #4b0082);
+    border-radius: 10px;
+    box-shadow: 0 0 6px #7b00ff, 0 0 12px #3a00cc;
+    transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #7b00ff, #1e1e50, #7b00ff);
+    box-shadow: 0 0 12px #7b00ff, 0 0 24px #3a00cc;
+}
+
+/* ===== PANEL GLOW ===== */
+.panel-group {
+    box-shadow: 0 0 12px #ff77ff, 0 0 24px #6600ff;
+    border-radius: 6px;
+}
+
+/* ===== TAB TEXT GLOW ===== */
+.tab .title {
+    text-shadow: 0 0 4px #7b00ff, 0 0 8px #ff77ff;
+}
+
+/* ===== REMOVE TOP BAR BACKGROUND ===== */
+#browser .tabbar-wrapper,
+#browser .window-controls-container,
+#browser .tabbar-background,
+#browser .tabbar-container,
+#browser .window-controls-background {
+    background-color: transparent !important; /* allow start page to show */
+    box-shadow: none !important;
+    backdrop-filter: blur(8px);
+}
+
+/* ===== FUN BUBBLY FONT FOR MENUS ===== */
+.menu,
+.menuitem,
+.menuitem-label,
+.popup {
+    font-family: "Baloo 2", "Comic Sans MS", cursive !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: #dcebff !important;
+    text-shadow: 0 0 2px #00d4ff, 0 0 4px #a5f3ff;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+::-webkit-scrollbar-track::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(#fff 1px, transparent 1px);
+    background-size: 20px 20px;
+    animation: twinkle 2s infinite alternate;
+}
+
+.tab:hover {
+    box-shadow: 0 0 15px #7b00ff, 0 0 30px #3a00cc, 0 0 50px #7b00ff44 inset;
+    transform: scale(1.06);
+}
+
+.tab.active .title {
+    background: linear-gradient(90deg, #ff77ff, #7b00ff, #ff77ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textShift 3s linear infinite;
+}
+
+@keyframes textShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* ===== SLOWLY SHIFTING TAB BORDER ===== */
+.tab::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    padding: 1px;
+    background: linear-gradient(90deg, #ff77ff, #7b00ff, #ff77ff);
+    background-size: 300% 300%;
+    -webkit-mask: linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0);
+    animation: gradientShift 6s ease infinite;
+    pointer-events: none;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===== DRIFTING SPARKLES OVER TABS ===== */
+.tab::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 2px);
+    background-size: 20px 20px;
+    animation: drift 12s linear infinite;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+@keyframes drift {
+    0% { transform: translate(0,0); }
+    100% { transform: translate(-50px, 50px); }
+}
